@@ -18,7 +18,7 @@ app.use('/logout', logoutRouter);
 // joi error handler
 app.use((err, req, res, next) => {
   if (err.isJoi) {
-    res.status(err.status || 500);
+    res.status(err.status || 400);
     res.send(pick(err, ['name', 'details']));
   } else {
     return next(err);
@@ -33,11 +33,12 @@ app.use(function(err, req, res, next) {
 
   res.status(err.status || 500);
 
+  res.set('Content-Type', 'text/plain');
   if (req.app.get('env') === 'development') {
     res.send(err.stack);
     throw err;
   } else {
-    res.send('Woops');
+    res.send(err.toString());
   }
 });
 

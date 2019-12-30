@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest"
+    "test": "jest --runInBand"
   },
   "dependencies": {
     "@hapi/joi": "^16.1.8",

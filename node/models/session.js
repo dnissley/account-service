@@ -12,6 +12,13 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       onDelete: 'CASCADE'
     });
+
+    Session.findByUserEmail = (email) => Session.findOne({
+      include: [{ 
+        model: models.User,
+        where: { email }
+      }]
+    });
   };
   return Session;
 };
