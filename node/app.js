@@ -10,7 +10,9 @@ const logoutRouter = require('./routes/logout');
 
 const app = express();
 
-app.use(logger('dev'));
+if ((process.env.REQUEST_LOGGING || "false") === "true") {
+  app.use(logger('dev'));
+}
 app.use(express.json());
 
 app.use('/account', accountRouter);
