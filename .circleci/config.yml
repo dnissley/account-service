@@ -50,8 +50,6 @@ jobs:
             done
             echo Failed waiting for MySQL && exit 1
 
-      - run: npx sequelize-cli db:migrate
-
       # run tests!
       - run: npm test
 
