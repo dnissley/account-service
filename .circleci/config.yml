@@ -15,7 +15,7 @@ jobs:
     working_directory: ~/account-service/node
 
     steps:
-      - checkout
+      - checkout:
           path: ~/account-service
 
       # Download and cache dependencies
