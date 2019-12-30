@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:12.14
+        environment:
           DB_HOST: 127.0.0.1
           DB_DATABASE: accounts
           DB_USER: accounts
