@@ -12,7 +12,7 @@ jobs:
           MYSQL_USER: accounts
           MYSQL_PASSWORD: password
 
-    working_directory: ~/repo/node
+    working_directory: ~/repo/node/node
 
     steps:
       - checkout
