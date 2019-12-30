@@ -3,6 +3,7 @@ const router = require('express-promise-router')();
 const createAccount = require('../services/createAccount');
 const createSession = require('../services/createSession');
 const fetchUserDetails = require('../services/fetchUserDetails');
+const AuthenticationError = require('../errors/AuthenticationError');
 
 const createAccountSchema = Joi.object({
   email: Joi.string().email().required(),
@@ -21,7 +22,7 @@ router.post('/', async (req, res) => {
 // Fetch Account Details
 router.get('/', async (req, res) => {
   const authToken = req.get('X-Auth-Token');
-  if (!authToken) throw new Error('No auth token provided');
+  if (!authToken) throw new AuthenticationError('No auth token provided');
   const userDetails = await fetchUserDetails(authToken);
   res.send(userDetails);
 });
