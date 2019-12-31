@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app');
+const app = require('../lib/app');
 const commonUtils = require('./util/common');
 
 describe('POST /login', () => {

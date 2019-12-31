@@ -1,5 +1,5 @@
-const models = require('../../models');
-const createAccount = require('../../services/createAccount');
+const models = require('../../lib/models');
+const createAccount = require('../../lib/services/createAccount');
 
 async function deleteUser(email) {
   return models.User.destroy({ where: { email }});

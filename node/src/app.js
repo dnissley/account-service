@@ -1,3 +1,9 @@
+// @flow
+
+import type {
+  Application
+} from 'express';
+
 require('dotenv').config();
 
 const express = require('express');
@@ -8,7 +14,7 @@ const accountRouter = require('./routes/account');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 
-const app = express();
+const app: Application = express();
 
 if ((process.env.REQUEST_LOGGING || "false") === "true") {
   app.use(logger('dev'));
